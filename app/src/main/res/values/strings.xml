@@ -6,10 +6,10 @@
         5 clues. Each clue will lead you to the location of one of your ingredients. When you think
         you have arrived at the correct location select \"Found It!\". Otherwise, panic and contemplate not
         showing up to the party at all. Just kidding, feel free select the \"Hint\" button if you need
-        any help. Remember to get home before time runs out!</string>
-    <string name="scenario" formatted="false">It is Friday, you just got home from work to realize
+        any help. Remember to get home before time runs out! Press start to begin.</string>
+    <string name="scenario" formatted="false">It is Friday, you got home to just realize
         you did not make a dish to bring to tonight\'s potluck. Social suicide! Fortunately, a recipe
-        comes to mind. You search your pantry just to find you do not have any of
+        comes to mind. You search the pantry just to find you do not have any of
         the ingredients! Quickly, head to town and gather all of the ingredients needed
-        to make your favorite dip. </string>
+        to make your favorite dish. </string>
 </resources>

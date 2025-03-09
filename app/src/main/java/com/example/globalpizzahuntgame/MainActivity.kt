@@ -35,7 +35,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            GlobalPizzaHuntGameTheme {
+            GlobalPizzaHuntGameTheme(
+            ) {
                 val layoutDirection = LocalLayoutDirection.current
                 val windowSize = calculateWindowSizeClass(this)
                 val viewModel: PizzaViewModel = viewModel
