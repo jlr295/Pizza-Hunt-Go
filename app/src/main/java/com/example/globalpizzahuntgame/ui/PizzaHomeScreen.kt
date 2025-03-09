@@ -11,3 +11,10 @@ fun PizzaHomeScreen(
 ){
 
 }
+
+@Composable
+private fun HomeScreenContent(
+
+) {
+
+}
