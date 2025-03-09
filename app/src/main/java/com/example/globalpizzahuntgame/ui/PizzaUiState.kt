@@ -1,4 +1,7 @@
 package com.example.globalpizzahuntgame.ui
 
-class PizzaUiState {
-}
+import com.example.globalpizzahuntgame.MyPizzaScreen
+
+data class PizzaUiState (
+    val currentPage: MyPizzaScreen = MyPizzaScreen.Start
+)

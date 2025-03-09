@@ -1,44 +1,45 @@
 package com.example.globalpizzahuntgame.ui
 
 
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.globalpizzahuntgame.ui.utils.ReplyNavigationType
-import com.example.globalpizzahuntgame.ui.utils.ReplyContentType
+import androidx.compose.ui.res.dimensionResource
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.globalpizzahuntgame.MyPizzaScreen
+import com.example.globalpizzahuntgame.R
+
 
 @Composable
 fun PizzaApp(
+    navController: NavHostController = rememberNavController(),
+    viewModel: PizzaViewModel,
+    pizzaUiState: PizzaUiState,
     windowSize: WindowWidthSizeClass,
     modifier: Modifier
 ) {
-    val navigationType: ReplyNavigationType
-    val contentType: ReplyContentType
+    NavHost(
+        navController = navController,
+        startDestination = MyPizzaScreen.Start.name,
+        modifier = Modifier
+            .padding(
+                dimensionResource(R.dimen.padding_medium)
+            )
+    ) {
+        composable(route = MyPizzaScreen.Start.name)
+        {
+            PizzaHomeScreen(
+                onStartClick = { },
+                modifier = Modifier
+                    .fillMaxSize()
+            )
+        }
 
-    when (windowSize) {
-        WindowWidthSizeClass.Compact -> {
-            navigationType = ReplyNavigationType.BOTTOM_NAVIGATION
-            contentType = ReplyContentType.LIST_ONLY
-        }
-        WindowWidthSizeClass.Medium -> {
-            navigationType = ReplyNavigationType.NAVIGATION_RAIL
-            contentType = ReplyContentType.LIST_ONLY
-        }
-        WindowWidthSizeClass.Expanded -> {
-            navigationType = ReplyNavigationType.PERMANENT_NAVIGATION_DRAWER
-            contentType = ReplyContentType.LIST_AND_DETAIL
-        }
-        else -> {
-            navigationType = ReplyNavigationType.BOTTOM_NAVIGATION
-            contentType = ReplyContentType.LIST_ONLY
-        }
+
     }
-
-    PizzaHomeScreen(
-        navigationType = navigationType,
-        contentType = contentType,
-
-    )
-
-
 }
