@@ -3,13 +3,12 @@ package com.example.globalpizzahuntgame.ui.components
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
-import androidx.compose.material3.CardElevation
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.dimensionResource
-import com.example.globalpizzahuntgame.R
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 
 
 @Composable
@@ -20,7 +19,7 @@ fun TextCard(
     Card(
         shape = MaterialTheme.shapes.large,
         colors = CardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceContainer,
+            containerColor = MaterialTheme.colorScheme.surfaceContainerHighest,
             contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
             disabledContentColor = MaterialTheme.colorScheme.surface,
             disabledContainerColor = MaterialTheme.colorScheme.surfaceContainer),
@@ -29,7 +28,9 @@ fun TextCard(
         Text(
             text = content,
             style = MaterialTheme.typography.bodyLarge,
-            modifier = Modifier.padding(dimensionResource(R.dimen.padding_medium))
+            textAlign = TextAlign.Justify,
+            modifier = Modifier
+                .padding(20.dp)
         )
     }
 }

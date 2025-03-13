@@ -4,12 +4,21 @@
     <string name="dish">Pizza Dip</string>
     <string name="directions" formatted="false">You will be presented with
         5 clues. Each clue will lead you to the location of one of your ingredients. When you think
-        you have arrived at the correct location select \"Found It!\". Otherwise, panic and contemplate not
+        you have arrived to the correct location select \"Found It!\". Otherwise, panic and contemplate not
         showing up to the party at all. Just kidding, feel free select the \"Hint\" button if you need
         any help. Remember to get home before time runs out! Press start to begin.</string>
-    <string name="scenario" formatted="false">It is Friday, you got home to just realize
-        you did not make a dish to bring to tonight\'s potluck. Social suicide! Fortunately, a recipe
-        comes to mind. You search the pantry just to find you do not have any of
+    <string name="scenario" formatted="false">It is Friday, you got home just to realize
+        you did not make a dish for tonight\'s potluck. Social suicide! Fortunately, a recipe
+        comes to mind. You search the pantry just to find out that you do not have any of
         the ingredients! Quickly, head to town and gather all of the ingredients needed
         to make your favorite dish. </string>
+    <string name="start">Start</string>
+    <string name="first_clue">First Clue</string>
+    <string name="second_clue">Second Clue</string>
+    <string name="third_clue">Third Clue</string>
+    <string name="fourth_clue">Fourth Clue</string>
+    <string name="fifth_clue">Fifth Clue</string>
+    <string name="pizza_slice">Pizza Slice</string>
+    <string name="hint_button">Hint Button</string>
+    <string name="elysian_fields_1846">Elysian Fields 1846</string>
 </resources>

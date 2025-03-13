@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.material3.MaterialTheme
@@ -36,6 +37,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             GlobalPizzaHuntGameTheme(
+                dynamicColor = false,
             ) {
                 val layoutDirection = LocalLayoutDirection.current
                 val windowSize = calculateWindowSizeClass(this)
@@ -52,6 +54,8 @@ class MainActivity : ComponentActivity() {
                             currentScreen = currentScreen,
                             canNavigateBack = navController.previousBackStackEntry != null,
                             navigateUp = { navController.navigateUp() },
+                            modifier = Modifier
+                                .fillMaxWidth()
                         )
                     },
                     containerColor = MaterialTheme.colorScheme.surface,
@@ -64,6 +68,7 @@ class MainActivity : ComponentActivity() {
                                 .calculateEndPadding(layoutDirection)
                         )
                 ) { innerPadding ->
+
                     PizzaApp(
                         pizzaUiState = pizzaUiState,
                         navController = navController,
@@ -71,6 +76,7 @@ class MainActivity : ComponentActivity() {
                         windowSize = windowSize.widthSizeClass,
                         modifier = Modifier
                             .padding(innerPadding)
+                            .fillMaxSize()
                     )
                 }
             }
@@ -81,6 +87,11 @@ class MainActivity : ComponentActivity() {
 // ENUM with categories
 enum class MyPizzaScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
+    First(title = R.string.first_clue),
+    Second(title = R.string.first_clue),
+    Third(title = R.string.first_clue),
+    Fourth(title = R.string.first_clue),
+    Fifth(title = R.string.first_clue),
 }
 
 

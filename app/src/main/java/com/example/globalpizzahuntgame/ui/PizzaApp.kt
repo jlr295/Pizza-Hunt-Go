@@ -1,12 +1,13 @@
 package com.example.globalpizzahuntgame.ui
 
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.dimensionResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -26,20 +27,53 @@ fun PizzaApp(
     NavHost(
         navController = navController,
         startDestination = MyPizzaScreen.Start.name,
-        modifier = Modifier
-            .padding(
-                dimensionResource(R.dimen.padding_medium)
-            )
+        modifier = modifier
     ) {
         composable(route = MyPizzaScreen.Start.name)
         {
             PizzaHomeScreen(
-                onStartClick = { },
+                onStartClick = {
+                    navController.navigate(MyPizzaScreen.First.name)
+                    viewModel.updateCurrentScreen(MyPizzaScreen.First)
+                },
                 modifier = Modifier
                     .fillMaxSize()
             )
         }
 
+        composable(route = MyPizzaScreen.First.name)
+        {
+            ClueScreen(
+                onNextClick = {
+                    navController.navigate(MyPizzaScreen.Second.name)
+                },
+                onHintClick = {},
+                onSubmitLocation = {},
+                cluePhoto = R.drawable.elysian_fields_1846,
+                clueText = "The first locally recorded game of baseball took place in Hoboken in 1846. Please visit the historic landmark of this former site. ",
+                //location = null,
+                modifier = Modifier
+                    .fillMaxSize()
+            )
+        }
 
-    }
+        composable(route = MyPizzaScreen.Second.name) {
+
+        }
+
+        composable(route = MyPizzaScreen.Third.name) {
+
+        }
+
+        composable(route = MyPizzaScreen.Fourth.name) {
+
+        }
+
+        composable(route = MyPizzaScreen.Fifth.name) {
+
+        }
+
+
+
+}
 }
