@@ -70,10 +70,8 @@ class MainActivity : ComponentActivity() {
                 ) { innerPadding ->
 
                     PizzaApp(
-                        pizzaUiState = pizzaUiState,
                         navController = navController,
                         viewModel = viewModel,
-                        windowSize = windowSize.widthSizeClass,
                         modifier = Modifier
                             .padding(innerPadding)
                             .fillMaxSize()

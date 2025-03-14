@@ -43,6 +43,7 @@ fun PizzaHomeScreen(
 
         SubmitButton(
             onClick = { onStartClick() },
+            buttonText = R.string.start,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(dimensionResource(R.dimen.padding_medium)))

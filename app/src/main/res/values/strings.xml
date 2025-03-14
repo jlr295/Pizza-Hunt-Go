@@ -13,12 +13,20 @@
         the ingredients! Quickly, head to town and gather all of the ingredients needed
         to make your favorite dish. </string>
     <string name="start">Start</string>
-    <string name="first_clue">First Clue</string>
-    <string name="second_clue">Second Clue</string>
-    <string name="third_clue">Third Clue</string>
-    <string name="fourth_clue">Fourth Clue</string>
-    <string name="fifth_clue">Fifth Clue</string>
+    <string name="first_clue">Clue #1</string>
+    <string name="second_clue">Clue #2</string>
+    <string name="third_clue">Clue #3</string>
+    <string name="fourth_clue">Clue #4</string>
+    <string name="fifth_clue">Clue #5</string>
     <string name="pizza_slice">Pizza Slice</string>
     <string name="hint_button">Hint Button</string>
-    <string name="elysian_fields_1846">Elysian Fields 1846</string>
+    <string name="Elysian_Fields_Title">Elysian Fields 1846</string>
+    <string name="found_it">Found It!</string>
+    <string name="cancel">Cancel</string>
+    <string name="elysian_fields_hint">Try looking uptown, maybe you\'ll find it on one of Hoboken\'s main streets, not far from the water.</string>
+    <string name="hint_icon">Hint Icon</string>
+    <string name="confirm">Confirm</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="Elysian_Fields_Clue">"The first locally recorded game of baseball took place in Hoboken in 1846. Please visit the landmark of this historic site. "</string>
+    <string name="hint">Hint</string>
 </resources>

@@ -1,13 +1,10 @@
 package com.example.globalpizzahuntgame.ui
 
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -20,10 +17,14 @@ import com.example.globalpizzahuntgame.R
 fun PizzaApp(
     navController: NavHostController = rememberNavController(),
     viewModel: PizzaViewModel,
-    pizzaUiState: PizzaUiState,
-    windowSize: WindowWidthSizeClass,
     modifier: Modifier
 ) {
+    if (viewModel.getAlertDialog()) {
+      viewModel.DisplayHint (
+          onConfirmation = { viewModel.setAlertDialog(false) },
+          onDismissRequest ={ viewModel.setAlertDialog(false) }
+        ) }
+
     NavHost(
         navController = navController,
         startDestination = MyPizzaScreen.Start.name,
@@ -44,13 +45,19 @@ fun PizzaApp(
         composable(route = MyPizzaScreen.First.name)
         {
             ClueScreen(
-                onNextClick = {
-                    navController.navigate(MyPizzaScreen.Second.name)
+                onCancel = {
+                    navController.navigate(MyPizzaScreen.Start.name)
                 },
-                onHintClick = {},
-                onSubmitLocation = {},
+                onHintClick = {
+                    viewModel.setAlertDialog(bool = true)
+                    viewModel.setAlertText(
+                        currHintTitle = R.string.hint,
+                        currHintText = R.string.elysian_fields_hint
+                    )
+                              },
+                onFoundIt = {},
                 cluePhoto = R.drawable.elysian_fields_1846,
-                clueText = "The first locally recorded game of baseball took place in Hoboken in 1846. Please visit the historic landmark of this former site. ",
+                clueText = stringResource(R.string.Elysian_Fields_Clue),
                 //location = null,
                 modifier = Modifier
                     .fillMaxSize()

@@ -4,11 +4,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.ButtonColors
-import androidx.compose.material3.FilledTonalButton
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -16,7 +13,6 @@ import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -27,7 +23,9 @@ import com.example.globalpizzahuntgame.R
 @Composable
 fun SubmitButton(
     onClick: () -> Unit,
-    modifier: Modifier = Modifier)
+    buttonText: Int,
+    modifier: Modifier = Modifier
+)
 {
     OutlinedButton (
         onClick = { onClick() },
@@ -40,7 +38,7 @@ fun SubmitButton(
         modifier = modifier
     ){
         Text(
-            stringResource(R.string.start),
+            stringResource(buttonText),
             style = MaterialTheme.typography.labelLarge,
             textAlign = TextAlign.Center,
             modifier = Modifier
@@ -52,7 +50,7 @@ fun SubmitButton(
 
 @Composable
 fun HintButton(
-    onClick: () -> Unit,
+    onClick:  () -> Unit,
     modifier: Modifier = Modifier)
 {
     SmallFloatingActionButton(
