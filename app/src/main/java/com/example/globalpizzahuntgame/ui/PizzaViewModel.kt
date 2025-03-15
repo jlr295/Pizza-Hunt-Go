@@ -1,14 +1,15 @@
 package com.example.globalpizzahuntgame.ui
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.runtime.Composable
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.globalpizzahuntgame.MyPizzaScreen
-import com.example.globalpizzahuntgame.ui.components.HintDialog
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 class PizzaViewModel : ViewModel() {
 
@@ -31,19 +32,6 @@ class PizzaViewModel : ViewModel() {
             )
         }
     }
-    @Composable
-    fun DisplayHint(
-        onDismissRequest: () -> Unit,
-        onConfirmation: () -> Unit
-    ){
-        HintDialog(
-            onDismissRequest =  { onDismissRequest() },
-            onConfirmation =  { onConfirmation() },
-            dialogTitle = getAlertTitle(),
-            dialogText = getAlertText(),
-            icon = Icons.Default.Search
-        )
-    }
 
     fun setAlertDialog(
         bool: Boolean,
@@ -51,6 +39,16 @@ class PizzaViewModel : ViewModel() {
         _uiState.update {
             it.copy(
                 openAlertDialog = bool,
+            )
+        }
+    }
+
+    fun setFoundIngredientDialog(
+        bool: Boolean,
+    ){
+        _uiState.update {
+            it.copy(
+                openFoundDialog = bool,
             )
         }
     }
@@ -67,16 +65,74 @@ class PizzaViewModel : ViewModel() {
         }
     }
 
+    fun setFoundIngredientText(
+        currIngredientText: Int,
+        currIngredientTitle: Int,
+        currIngredientPhoto: Int
+    ){
+        _uiState.update {
+            it.copy(
+                foundIngredientMessage = currIngredientText,
+                foundIngredientPic = currIngredientPhoto,
+                foundIngredientTitle = currIngredientTitle
+            )
+        }
+    }
+
     fun getAlertDialog(): Boolean{
          return uiState.value.openAlertDialog
     }
 
-    private fun getAlertText(): Int{
+    fun getAlertText(): Int{
         return uiState.value.currHintText
     }
 
-    private fun getAlertTitle(): Int{
+    fun getAlertTitle(): Int{
         return uiState.value.currHintTitle
     }
+
+    fun getIngredientPhoto(): Int{
+        return uiState.value.foundIngredientPic
+    }
+
+    fun getIngredientMessage(): Int{
+        return uiState.value.foundIngredientMessage
+    }
+
+}
+
+class TimerViewModel: ViewModel() {
+    private val _timer = MutableStateFlow(0L)
+    val timer = _timer.asStateFlow()
+
+    private var timerJob: Job? = null
+
+    fun startTimer() {
+        timerJob?.cancel()
+        timerJob = viewModelScope.launch {
+            while (true) {
+                delay(1000)
+                _timer.value ++
+            }
+        }
+    }
+
+    fun pauseTimer() {
+        timerJob?.cancel()
+    }
+
+    fun stopTimer() {
+        _timer.value = 0
+        timerJob?.cancel()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        timerJob?.cancel()
+    }
+
+
+
+
 }
 

@@ -20,7 +20,7 @@ import com.example.globalpizzahuntgame.ui.components.TextCard
 
 @Composable
 fun PizzaHomeScreen(
-    onStartClick:() -> Unit,
+    onStartClick: () -> Unit,
     modifier: Modifier = Modifier
 ){
     Column(

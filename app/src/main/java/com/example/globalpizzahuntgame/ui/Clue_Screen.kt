@@ -20,6 +20,8 @@ import com.example.globalpizzahuntgame.R
 import com.example.globalpizzahuntgame.ui.components.HintButton
 import com.example.globalpizzahuntgame.ui.components.SubmitButton
 import com.example.globalpizzahuntgame.ui.components.TextCard
+import com.example.globalpizzahuntgame.ui.components.TimerScreen
+import com.example.globalpizzahuntgame.ui.components.formatTime
 
 @Composable
 fun ClueScreen(
@@ -28,6 +30,7 @@ fun ClueScreen(
     onFoundIt: () -> Unit,
     cluePhoto: Int,
     clueText: String,
+    timerValue: Long,
     //location: Location,
     modifier: Modifier = Modifier
 ){
@@ -44,6 +47,10 @@ fun ClueScreen(
                 .fillMaxWidth()
                 .padding(dimensionResource(R.dimen.padding_medium))
         ) {
+            TimerScreen(
+                timerValue.formatTime(),
+                modifier = Modifier
+                    .padding(dimensionResource(R.dimen.padding_medium)))
             HintButton(
                 onClick = { onHintClick(true) },
                 modifier = Modifier

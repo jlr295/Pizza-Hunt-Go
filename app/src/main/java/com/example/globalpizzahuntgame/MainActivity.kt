@@ -26,11 +26,13 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.globalpizzahuntgame.ui.PizzaApp
 import com.example.globalpizzahuntgame.ui.PizzaViewModel
+import com.example.globalpizzahuntgame.ui.TimerViewModel
 import com.example.globalpizzahuntgame.ui.components.PizzaAppBar
 import com.example.globalpizzahuntgame.ui.theme.GlobalPizzaHuntGameTheme
 
 class MainActivity : ComponentActivity() {
     private val viewModel by viewModels<PizzaViewModel>()
+    val timerViewModel: TimerViewModel by viewModels()
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,6 +74,7 @@ class MainActivity : ComponentActivity() {
                     PizzaApp(
                         navController = navController,
                         viewModel = viewModel,
+                        timerViewModel = timerViewModel,
                         modifier = Modifier
                             .padding(innerPadding)
                             .fillMaxSize()

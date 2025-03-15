@@ -13,11 +13,11 @@
         the ingredients! Quickly, head to town and gather all of the ingredients needed
         to make your favorite dish. </string>
     <string name="start">Start</string>
-    <string name="first_clue">Clue #1</string>
-    <string name="second_clue">Clue #2</string>
-    <string name="third_clue">Clue #3</string>
-    <string name="fourth_clue">Clue #4</string>
-    <string name="fifth_clue">Clue #5</string>
+    <string name="first_clue">Hoboken\'s First</string>
+    <string name="second_clue">Party Time</string>
+    <string name="third_clue">Let\'s Take a Stroll</string>
+    <string name="fourth_clue">Coffee Anybody?</string>
+    <string name="fifth_clue">One Manhattan Please</string>
     <string name="pizza_slice">Pizza Slice</string>
     <string name="hint_button">Hint Button</string>
     <string name="Elysian_Fields_Title">Elysian Fields 1846</string>
